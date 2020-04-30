@@ -1,0 +1,43 @@
+#!groovy
+import jenkins.model.*
+import hudson.security.*
+import com.cloudbees.plugins.credentials.*
+
+// Project-based Matrix Strategy => https://wiki.jenkins-ci.org/display/JENKINS/Matrix-based+security
+def projectMatrixAuthorizationStrategy = new hudson.security.ProjectMatrixAuthorizationStrategy()
+
+// ------------------------------------------------------------------------
+// 1) Default Users / Permissions
+// ------------------------------------------------------------------------
+
+{% for user in jenkins_pbms_default_users %}
+//
+// User: {{ user.name }}
+//
+{% for permission in user.permissions %}
+projectMatrixAuthorizationStrategy.add({{ permission }}, '{{ user.name }}')
+{% endfor %}
+
+{% endfor %}
+
+// ------------------------------------------------------------------------
+// 2) User-defined Users / Permissions
+// ------------------------------------------------------------------------
+
+{% for user in jenkins_pbms_users %}
+//
+// User: {{ user.name }}
+//
+{% for permission in user.permissions %}
+projectMatrixAuthorizationStrategy.add({{ permission }}, '{{ user.name }}')
+{% endfor %}
+
+{% endfor %}
+
+
+//
+// Persist Changes
+//
+def instance = Jenkins.getInstance()
+instance.setAuthorizationStrategy(projectMatrixAuthorizationStrategy)
+instance.save()
