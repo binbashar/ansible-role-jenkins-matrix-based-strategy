@@ -1,5 +1,5 @@
 # Groovy init script name
-jenkins_rbs_script_name: project-matrix-strategy.groovy
+jenkins_rbs_script_name: matrix-based-strategy.groovy
 # Time to wait after a Jenkins restart
 jenkins_rbs_wait_after_restart: 60
 # Jenkins home
