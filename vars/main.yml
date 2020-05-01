@@ -1,10 +1,39 @@
 # Define your users and permissions
 jenkins_pbms_users: []
-# - name: builder
+# - name: admin
 #   permissions:
 #   # Overall
-#   - hudson.model.Hudson.Read
+#   - hudson.model.Hudson.ADMINISTER
+#   - hudson.model.Hudson.READ
+#   # Credentials
+#   - com.cloudbees.plugins.credentials.CredentialsProvider.CREATE
+#   - com.cloudbees.plugins.credentials.CredentialsProvider.DELETE
+#   - com.cloudbees.plugins.credentials.CredentialsProvider.MANAGE_DOMAINS
+#   - com.cloudbees.plugins.credentials.CredentialsProvider.UPDATE
+#   - com.cloudbees.plugins.credentials.CredentialsProvider.VIEW
+#   # Agent
+#   - hudson.model.Computer.BUILD
+#   - hudson.model.Computer.CONFIGURE
+#   - hudson.model.Computer.CONNECT
+#   - hudson.model.Computer.CREATE
+#   - hudson.model.Computer.DELETE
+#   - hudson.model.Computer.DISCONNECT
 #   # Job
-#   - hudson.model.Item.Build
-#   - hudson.model.Item.Discover
-#   - hudson.model.Item.Read
+#   - hudson.model.Item.BUILD
+#   - hudson.model.Item.CANCEL
+#   - hudson.model.Item.CONFIGURE
+#   - hudson.model.Item.CREATE
+#   - hudson.model.Item.DELETE
+#   - hudson.model.Item.DISCOVER
+#   - hudson.model.Item.READ
+#   - hudson.model.Item.WORKSPACE
+#   # Run
+#   - hudson.model.Run.DELETE
+#   - hudson.model.Run.UPDATE
+#   # View
+#   - hudson.model.View.CONFIGURE
+#   - hudson.model.View.CREATE
+#   - hudson.model.View.DELETE
+#   - hudson.model.View.READ
+#   # SCM
+#   - hudson.scm.SCM.TAG
