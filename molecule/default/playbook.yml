@@ -19,7 +19,8 @@
     - role: geerlingguy.java
     - role: geerlingguy.jenkins
       jenkins_plugins:
-        - matrix-based
+        - matrix-auth
+        - matrix-project
 
     - role: binbash_inc.ansible_role_jenkins_matrix_based_strategy
       jenkins_pbms_users:
