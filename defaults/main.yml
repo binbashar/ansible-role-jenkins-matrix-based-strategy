@@ -1,3 +1,4 @@
+---
 # Groovy init script name
 jenkins_rbs_script_name: matrix-based-strategy.groovy
 # Time to wait after a Jenkins restart
@@ -17,7 +18,7 @@ jenkins_rbs_port: 8080
 #   - One for authenticated users who can only view Jenkins home page
 #   - And another for the admin user who can manage everything
 jenkins_pbms_default_users:
-- name: authenticated
-  permissions:
-  # Overall
-  - hudson.model.Hudson.Read
+  - name: authenticated
+    permissions:
+      # Overall
+      - hudson.model.Hudson.Read

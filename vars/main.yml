@@ -1,3 +1,4 @@
+---
 # Define your users and permissions
 jenkins_pbms_users: []
 # - name: admin

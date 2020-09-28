@@ -18,15 +18,15 @@
   roles:
     - role: geerlingguy.java
     - role: geerlingguy.jenkins
+      jenkins_plugins:
+        - matrix-based
 
-    - role: binbash_inc.ansible_role_jenkins_role_based_strategy
-      jenkins_rbs_users:
-        - name: user1
-          roles:
-            - admin
-        - name: user2
-          roles:
-            - authenticated
+    - role: binbash_inc.ansible_role_jenkins_matrix_based_strategy
+      jenkins_pbms_users:
+        - name: your-user
+          permissions:
+            - hudson.model.Hudson.READ
+            - hudson.model.Hudson.ADMINISTER
 
   post_tasks:
     - name: Check if Jenkins is running.
